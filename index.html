@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+        <title>ADR Viewer - shell</title>
+
+        <style type="text/css">
+            body {
+                display: grid;
+                width: auto;
+                height: auto;
+                align-items: center;
+                justify-items: center;
+                grid-template-rows: 2fr minmax(80%, auto) 2fr;
+            }
+
+            @media only screen and (min-width: 1025px) {
+                body {
+                    grid-template-columns: 1fr 3fr 1fr;
+                }
+
+                header, .panel-group, footer {
+                    grid-column: 2;
+                }
+            }
+
+            .panel-group {
+                width: 100%
+            }
+
+            .panel-heading.adr-accepted {
+                background-color: lightgreen;
+            }
+
+            .panel-heading.adr-superseded {
+                background-color: lightgrey;
+            }
+
+            .panel-heading.adr-amended {
+                background-color: yellow;
+            }
+
+            .panel-heading.adr-unknown {
+                background-color: white;
+            }
+
+            .panel-heading.adr-pending {
+                background-color: lightblue;
+            }
+
+            .adr-superseded > .panel-title > a {
+                text-decoration: line-through;
+            }
+
+            .adr-icon {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>ADR Viewer - shell</h1>
+        </header>
+        <div class="panel-group">
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-unknown">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse0">1. Use jest for testing</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-question"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse0" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>1. Use jest for testing</h1>
+<p>Date: 2024-01-31</p>
+<h2>Status</h2>
+<p>Superceded by <a href="0002-use-vitest-for-testing.md">2. Use vitest for testing</a></p>
+<h2>Background</h2>
+<h3>Context</h3>
+<p>💡 <em>Give the reader a broad overview of the landscape in which the proposed change is being built.</em></p>
+<h3>Motivation</h3>
+<p>💡 <em>Explain the motivation for the change and why we should aim to address it.</em></p>
+<h3>Requirements</h3>
+<p>💡 <em>A short list of bullet points of what the scope of the change is.
+Note: It is often helpful to state explicitly what is not expected to be in the scope.</em></p>
+<h2>Design</h2>
+<p>💡 <em>Given the background, explain the high-level idea of your proposed solution.</em></p>
+<h3>System Architecture</h3>
+<p>💡 <em>Describe the system on a high level and put it into context. Diagram usually works great — e.g. <a href="https://en.wikipedia.org/wiki/System_context_diagram">system context diagram</a>. Explain components and how they relate to each other.</em></p>
+<h3>Communication</h3>
+<p>💡 *Explain how the components communicate. Diagrams with some context usually work great — e.g. <a href="https://lh3.googleusercontent.com/sdy9Au0Ibv3aseGZyIKNwivgqnaZ0FqF1mUgIzZY7ZIqppJeZVqUl3Iundy0qzwJLSMdFyA-oysP5YGv5pNYpI11m9A5AY0Oqdqj=s0">data/control flow diagrams</a>.</p>
+<p>If you already have a clear idea you can further sketch APIs and explain mechanics — e.g. Kafka/HTTP, protocol — e.g. JSON/Protobuf, REST/gRPC — and message schema for how components communicate.*</p>
+<h2>Data</h2>
+<p>💡 <em>Think about data in your design. Start with high-level entities and drill down to how the system works with the actual data when implemented.</em></p>
+<h3>Model</h3>
+<p>💡 <em>Think about key entities in your design, which system owns them and how do they relate inside or across the systems.</em>
+<em>Hint: Don't think about database tables just yet!</em></p>
+<h3>Storage</h3>
+<p>💡 <em>Explain a bit more about any data storage considerations — databases or other storage affected, data model, formats, etc.</em></p>
+<h2>Further Considerations</h2>
+<h3>Previous Art</h3>
+<p>💡 <em>Are there any previous attempts to solve this problem? Provide references, links, or further context.</em></p>
+<h3>Alternative Approaches Considered</h3>
+<p>💡 <em>Were any alternatives considered as a solution to this problem? Provide a short description of the pros and cons of each.</em></p>
+<h3>Open Questions</h3>
+<p>💡 <em>What questions are left open and would you like to discuss them with the audience?</em></p>
+<h3>Next Steps</h3>
+<p>💡 <em>Are you planning to call a design review meeting and start to code the prototype immediately, or are you hoping to have a broad discussion? Clarify your plan going forward.</em></p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-amended">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">2. Use vitest for testing</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-arrow-down"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>2. Use vitest for testing</h1>
+<p>Date: 2024-01-31</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<p>Supercedes <a href="0001-use-jest-for-testing.md">1. Use jest for testing</a></p>
+<p>Amended by <a href="0003-use-vitest-for-testing-components.md">3. Use vitest for testing components</a></p>
+<h2>Background</h2>
+<h3>Context</h3>
+<p>💡 <em>Give the reader a broad overview of the landscape in which the proposed change is being built.</em></p>
+<h3>Motivation</h3>
+<p>💡 <em>Explain the motivation for the change and why we should aim to address it.</em></p>
+<h3>Requirements</h3>
+<p>💡 <em>A short list of bullet points of what the scope of the change is.
+Note: It is often helpful to state explicitly what is not expected to be in the scope.</em></p>
+<h2>Design</h2>
+<p>💡 <em>Given the background, explain the high-level idea of your proposed solution.</em></p>
+<h3>System Architecture</h3>
+<p>💡 <em>Describe the system on a high level and put it into context. Diagram usually works great — e.g. <a href="https://en.wikipedia.org/wiki/System_context_diagram">system context diagram</a>. Explain components and how they relate to each other.</em></p>
+<h3>Communication</h3>
+<p>💡 *Explain how the components communicate. Diagrams with some context usually work great — e.g. <a href="https://lh3.googleusercontent.com/sdy9Au0Ibv3aseGZyIKNwivgqnaZ0FqF1mUgIzZY7ZIqppJeZVqUl3Iundy0qzwJLSMdFyA-oysP5YGv5pNYpI11m9A5AY0Oqdqj=s0">data/control flow diagrams</a>.</p>
+<p>If you already have a clear idea you can further sketch APIs and explain mechanics — e.g. Kafka/HTTP, protocol — e.g. JSON/Protobuf, REST/gRPC — and message schema for how components communicate.*</p>
+<h2>Data</h2>
+<p>💡 <em>Think about data in your design. Start with high-level entities and drill down to how the system works with the actual data when implemented.</em></p>
+<h3>Model</h3>
+<p>💡 <em>Think about key entities in your design, which system owns them and how do they relate inside or across the systems.</em>
+<em>Hint: Don't think about database tables just yet!</em></p>
+<h3>Storage</h3>
+<p>💡 <em>Explain a bit more about any data storage considerations — databases or other storage affected, data model, formats, etc.</em></p>
+<h2>Further Considerations</h2>
+<h3>Previous Art</h3>
+<p>💡 <em>Are there any previous attempts to solve this problem? Provide references, links, or further context.</em></p>
+<h3>Alternative Approaches Considered</h3>
+<p>💡 <em>Were any alternatives considered as a solution to this problem? Provide a short description of the pros and cons of each.</em></p>
+<h3>Open Questions</h3>
+<p>💡 <em>What questions are left open and would you like to discuss them with the audience?</em></p>
+<h3>Next Steps</h3>
+<p>💡 <em>Are you planning to call a design review meeting and start to code the prototype immediately, or are you hoping to have a broad discussion? Clarify your plan going forward.</em></p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">3. Use vitest for testing components</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>3. Use vitest for testing components</h1>
+<p>Date: 2024-01-31</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<p>Amends <a href="0002-use-vitest-for-testing.md">2. Use vitest for testing</a></p>
+<h2>Background</h2>
+<h3>Context</h3>
+<p>💡 <em>Give the reader a broad overview of the landscape in which the proposed change is being built.</em></p>
+<h3>Motivation</h3>
+<p>💡 <em>Explain the motivation for the change and why we should aim to address it.</em></p>
+<h3>Requirements</h3>
+<p>💡 <em>A short list of bullet points of what the scope of the change is.
+Note: It is often helpful to state explicitly what is not expected to be in the scope.</em></p>
+<h2>Design</h2>
+<p>💡 <em>Given the background, explain the high-level idea of your proposed solution.</em></p>
+<h3>System Architecture</h3>
+<p>💡 <em>Describe the system on a high level and put it into context. Diagram usually works great — e.g. <a href="https://en.wikipedia.org/wiki/System_context_diagram">system context diagram</a>. Explain components and how they relate to each other.</em></p>
+<h3>Communication</h3>
+<p>💡 *Explain how the components communicate. Diagrams with some context usually work great — e.g. <a href="https://lh3.googleusercontent.com/sdy9Au0Ibv3aseGZyIKNwivgqnaZ0FqF1mUgIzZY7ZIqppJeZVqUl3Iundy0qzwJLSMdFyA-oysP5YGv5pNYpI11m9A5AY0Oqdqj=s0">data/control flow diagrams</a>.</p>
+<p>If you already have a clear idea you can further sketch APIs and explain mechanics — e.g. Kafka/HTTP, protocol — e.g. JSON/Protobuf, REST/gRPC — and message schema for how components communicate.*</p>
+<h2>Data</h2>
+<p>💡 <em>Think about data in your design. Start with high-level entities and drill down to how the system works with the actual data when implemented.</em></p>
+<h3>Model</h3>
+<p>💡 <em>Think about key entities in your design, which system owns them and how do they relate inside or across the systems.</em>
+<em>Hint: Don't think about database tables just yet!</em></p>
+<h3>Storage</h3>
+<p>💡 <em>Explain a bit more about any data storage considerations — databases or other storage affected, data model, formats, etc.</em></p>
+<h2>Further Considerations</h2>
+<h3>Previous Art</h3>
+<p>💡 <em>Are there any previous attempts to solve this problem? Provide references, links, or further context.</em></p>
+<h3>Alternative Approaches Considered</h3>
+<p>💡 <em>Were any alternatives considered as a solution to this problem? Provide a short description of the pros and cons of each.</em></p>
+<h3>Open Questions</h3>
+<p>💡 <em>What questions are left open and would you like to discuss them with the audience?</em></p>
+<h3>Next Steps</h3>
+<p>💡 <em>Are you planning to call a design review meeting and start to code the prototype immediately, or are you hoping to have a broad discussion? Clarify your plan going forward.</em></p>
+</div>
+                </div>
+            </div>
+            
+        </div>
+        <footer>
+            Generated with <3 using ADR Viewer
+        </footer>
+    </body>
+</html>
