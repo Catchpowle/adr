@@ -53,7 +53,7 @@ function generateContentsPage(markdownFiles) {
     const tags = metadata.tags
       ? metadata.tags.split(",").map((tag) => tag.trim())
       : [];
-    contents += `| [${title}](${filename}) | ${tags.join(", ")} |\n`;
+    contents += `| [${title}](doc/adr/${filename}) | ${tags.join(", ")} |\n`;
   });
 
   return contents;
