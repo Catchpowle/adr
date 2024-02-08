@@ -69,5 +69,5 @@ const markdownFiles = readMarkdownFiles(adrDirectory);
 const contentsPage = generateContentsPage(markdownFiles);
 
 // Write contents page to a file at the top level of the repository
-fs.writeFileSync("contents.md", contentsPage);
+fs.writeFileSync("README.md", contentsPage);
 console.log("Contents page generated successfully.");
