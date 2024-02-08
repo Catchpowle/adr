@@ -1,10 +1,10 @@
-# 1. Use jest for testing
+# 1. Use Jest for testing
 
 Date: 2024-01-31
 
 ## Status
 
-Superceded by [2. Use vitest for testing](0002-use-vitest-for-testing.md)
+Superceded by [2. Use Vitest for testing](0002-use-vitest-for-testing.md)
 
 ## Background
 

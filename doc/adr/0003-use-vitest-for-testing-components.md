@@ -1,4 +1,8 @@
-# 3. Use vitest for testing components
+---
+tags: money, income, coding
+---
+
+# 3. Use Vitest for testing components
 
 Date: 2024-01-31
 
@@ -6,7 +10,7 @@ Date: 2024-01-31
 
 Accepted
 
-Amends [2. Use vitest for testing](0002-use-vitest-for-testing.md)
+Amends [2. Use Vitest for testing](0002-use-vitest-for-testing.md)
 
 ## Background
 

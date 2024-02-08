@@ -1,4 +1,4 @@
-# 2. Use vitest for testing
+# 2. Use Vitest for testing
 
 Date: 2024-01-31
 
@@ -6,9 +6,9 @@ Date: 2024-01-31
 
 Accepted
 
-Supercedes [1. Use jest for testing](0001-use-jest-for-testing.md)
+Supercedes [1. Use Jest for testing](0001-use-jest-for-testing.md)
 
-Amended by [3. Use vitest for testing components](0003-use-vitest-for-testing-components.md)
+Amended by [3. Use Vitest for testing components](0003-use-vitest-for-testing-components.md)
 
 ## Background
 
