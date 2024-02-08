@@ -55,7 +55,10 @@ function readMarkdownFiles(directory) {
 
 function displayTags(tags) {
   return tags
-    .map((tag) => `[\`${tag}\`](https://github.com/Catchpowle/adr/tags/${tag})`)
+    .map(
+      (tag) =>
+        `[\`${tag}\`](https://github.com/Catchpowle/adr/tree/main/tags/${tag})`
+    )
     .join(" ");
 }
 
