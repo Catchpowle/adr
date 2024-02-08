@@ -58,7 +58,7 @@ function displayTags(tags) {
 
 function generateContentsPage(markdownFiles) {
   let contents = "# Contents\n\n";
-  contents += "| Date | Title | Tags | Author |\n";
+  contents += "| Date | Title | Tags | Authors |\n";
   contents += "|-------|------|------|------|\n";
 
   markdownFiles.reverse().forEach((filename) => {
