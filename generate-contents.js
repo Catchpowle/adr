@@ -102,10 +102,13 @@ function generateTagFolders(markdownFiles) {
 
   tagFolders.forEach((tag) => {
     const folderPath = path.join(".", "tags", tag);
+    console.log(folderPath);
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath, { recursive: true });
+      console.log("Folder created:", folderPath);
     }
     const contentsPage = generateContentsPage(markdownFiles, tag);
+    console.log(contentsPage);
     fs.writeFileSync(path.join(folderPath, "README.md"), contentsPage);
     console.log(`Contents page generated for tag "${tag}"`);
   });
