@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: "20.11.0"
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Generate Contents Page
         run: node generate-contents.js
 
