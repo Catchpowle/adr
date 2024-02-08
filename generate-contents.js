@@ -57,7 +57,7 @@ function displayTags(tags) {
   return tags
     .map(
       (tag) =>
-        `[\`${tag}\`](https://github.com/Catchpowle/adr/tree/main/tags/${tag}.md)`
+        `[\`${tag}\`](https://github.com/Catchpowle/adr/blob/main/tags/${tag}.md)`
     )
     .join(" ");
 }
