@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
+const REPO_URL = "https://github.com/Catchpowle/adr/blob/main";
+
 function extractMetadata(markdownContent) {
   const metadata = {};
   const lines = markdownContent.split("\n");
@@ -54,12 +56,7 @@ function readMarkdownFiles(directory) {
 }
 
 function displayTags(tags) {
-  return tags
-    .map(
-      (tag) =>
-        `[\`${tag}\`](https://github.com/Catchpowle/adr/blob/main/tags/${tag}.md)`
-    )
-    .join(" ");
+  return tags.map((tag) => `[\`${tag}\`](${REPO_URL}/${tag}.md)`).join(" ");
 }
 
 function generateContentsPage(markdownFiles, specificTag) {
@@ -82,7 +79,7 @@ function generateContentsPage(markdownFiles, specificTag) {
     const authors = metadata.authors
       ? metadata.authors.split(",").map((author) => author.trim())
       : [];
-    contents += `| ${date} | [${title}](doc/adr/${filename}) | ${displayTags(
+    contents += `| ${date} | [${title}](${REPO_URL}/doc/adr/${filename}) | ${displayTags(
       tags
     )} | ${authors.join(", ")}\n`;
   });
