@@ -54,7 +54,9 @@ function readMarkdownFiles(directory) {
 }
 
 function displayTags(tags) {
-  return tags.map((tag) => `[\`${tag}\`](tags/${tag})`).join(" ");
+  return tags
+    .map((tag) => `[\`${tag}\`](${path.join(".", "tags", tag)})`)
+    .join(" ");
 }
 
 function generateContentsPage(markdownFiles, specificTag) {
