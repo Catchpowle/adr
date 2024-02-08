@@ -1,3 +1,7 @@
+---
+tags: frontend,testing
+---
+
 # 2. Use Vitest for testing
 
 Date: 2024-01-31

@@ -1,5 +1,5 @@
 ---
-tags: money, income, coding
+tags: frontend,testing
 ---
 
 # 3. Use Vitest for testing components

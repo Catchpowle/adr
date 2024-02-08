@@ -1,3 +1,7 @@
+---
+tags: frontend,testing
+---
+
 # 1. Use Jest for testing
 
 Date: 2024-01-31

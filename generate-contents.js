@@ -26,6 +26,16 @@ function extractMetadata(markdownContent) {
   return metadata;
 }
 
+function extractTitle(markdownContent) {
+  const lines = markdownContent.split("\n");
+  for (let line of lines) {
+    if (line.trim().startsWith("# ")) {
+      return line.trim().substring(2); // Remove the # symbol and trim whitespace
+    }
+  }
+  return null;
+}
+
 function readMarkdownFiles(directory) {
   const files = fs.readdirSync(directory);
   return files.filter((file) => file.endsWith(".md"));
@@ -37,9 +47,9 @@ function generateContentsPage(markdownFiles) {
   contents += "|-------|------|\n";
 
   markdownFiles.forEach((filename) => {
-    const markdownContent = fs.readFileSync(filename, "utf8");
+    const markdownContent = fs.readFileSync(`doc/adr/${filename}`, "utf8");
     const metadata = extractMetadata(markdownContent);
-    const title = metadata.title || filename.replace(".md", "");
+    const title = extractTitle(markdownContent);
     const tags = metadata.tags
       ? metadata.tags.split(",").map((tag) => tag.trim())
       : [];
