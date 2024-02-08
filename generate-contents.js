@@ -54,7 +54,7 @@ function readMarkdownFiles(directory) {
 }
 
 function displayTags(tags) {
-  return tags.map((tag) => `\`${tag}\``).join(" ");
+  return tags.map((tag) => `[\`${tag}\`](tags/${tag})`).join(" ");
 }
 
 function generateContentsPage(markdownFiles, specificTag) {
@@ -98,17 +98,12 @@ function generateTagFolders(markdownFiles) {
     });
   });
 
-  console.log(tagFolders);
-
   tagFolders.forEach((tag) => {
     const folderPath = path.join(".", "tags", tag);
-    console.log(folderPath);
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath, { recursive: true });
-      console.log("Folder created:", folderPath);
     }
     const contentsPage = generateContentsPage(markdownFiles, tag);
-    console.log(contentsPage);
     fs.writeFileSync(path.join(folderPath, "README.md"), contentsPage);
     console.log(`Contents page generated for tag "${tag}"`);
   });
