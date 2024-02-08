@@ -56,7 +56,7 @@ function displayTags(tags) {
   return tags.map((tag) => `\`${tag}\``).join(" ");
 }
 
-function generateContentsPage(markdownFiles) {
+function generateContentsPage(markdownFiles, specificTag) {
   let contents = "# Contents\n\n";
   contents += "| Date | Title | Tags | Authors |\n";
   contents += "|-------|------|------|------|\n";
@@ -64,11 +64,15 @@ function generateContentsPage(markdownFiles) {
   markdownFiles.reverse().forEach((filename) => {
     const markdownContent = fs.readFileSync(`doc/adr/${filename}`, "utf8");
     const metadata = extractMetadata(markdownContent);
-    const date = extractDate(markdownContent);
-    const title = extractTitle(markdownContent);
     const tags = metadata.tags
       ? metadata.tags.split(",").map((tag) => tag.trim())
       : [];
+
+    if (specificTag && !tags.includes(specificTag)) return;
+
+    const date = extractDate(markdownContent);
+    const title = extractTitle(markdownContent);
+
     const authors = metadata.authors
       ? metadata.authors.split(",").map((author) => author.trim())
       : [];
@@ -80,11 +84,37 @@ function generateContentsPage(markdownFiles) {
   return contents;
 }
 
+function generateTagFolders(markdownFiles) {
+  const tagFolders = new Set();
+  markdownFiles.forEach((filename) => {
+    const markdownContent = fs.readFileSync(`doc/adr/${filename}`, "utf8");
+    const metadata = extractMetadata(markdownContent);
+    const tags = metadata.tags
+      ? metadata.tags.split(",").map((tag) => tag.trim())
+      : [];
+    tags.forEach((tag) => {
+      tagFolders.add(tag);
+    });
+  });
+
+  tagFolders.forEach((tag) => {
+    const folderPath = path.join(".", "tags", tag);
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true });
+    }
+    const contentsPage = generateContentsPage(markdownFiles, tag);
+    fs.writeFileSync(path.join(folderPath, "README.md"), contentsPage);
+    console.log(`Contents page generated for tag "${tag}"`);
+  });
+}
+
 // Specify the directory containing ADR Markdown files
 const adrDirectory = "./doc/adr/";
 
 // Read all ADR Markdown files in the directory
 const markdownFiles = readMarkdownFiles(adrDirectory);
+
+generateTagFolders(markdownFiles);
 
 // Generate contents page
 const contentsPage = generateContentsPage(markdownFiles);
