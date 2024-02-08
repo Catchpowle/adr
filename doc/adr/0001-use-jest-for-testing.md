@@ -1,6 +1,6 @@
 ---
 tags: frontend, testing
-authors: Jon Catchpowle, Matej Vobornik
+authors: Jon Catchpowle
 ---
 
 # 1. Use Jest for testing

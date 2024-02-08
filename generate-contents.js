@@ -98,6 +98,8 @@ function generateTagFolders(markdownFiles) {
     });
   });
 
+  console.log(tagFolders);
+
   tagFolders.forEach((tag) => {
     const folderPath = path.join(".", "tags", tag);
     if (!fs.existsSync(folderPath)) {
