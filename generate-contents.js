@@ -42,7 +42,7 @@ function readMarkdownFiles(directory) {
 }
 
 function displayTags(tags) {
-  return tags.map((tag) => `\`${tag}\``).join(", ");
+  return tags.map((tag) => `\`${tag}\``).join(" ");
 }
 
 function generateContentsPage(markdownFiles) {
