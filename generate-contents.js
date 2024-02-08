@@ -39,7 +39,7 @@ function extractTitle(markdownContent) {
 function extractDate(markdownContent) {
   const lines = markdownContent.split("\n");
   for (let line of lines) {
-    if (line.trim().startsWith("date:")) {
+    if (line.trim().startsWith("Date:")) {
       const date = line.trim().substring(5).trim();
       return date;
     }
