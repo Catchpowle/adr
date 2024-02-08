@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 function extractMetadata(markdownContent) {
   const metadata = {};
