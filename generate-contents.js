@@ -58,8 +58,8 @@ function displayTags(tags) {
 
 function generateContentsPage(markdownFiles) {
   let contents = "# Contents\n\n";
-  contents += "| Date | Title | Tags |\n";
-  contents += "|-------|------|------|\n";
+  contents += "| Date | Title | Tags | Author |\n";
+  contents += "|-------|------|------|------|\n";
 
   markdownFiles.reverse().forEach((filename) => {
     const markdownContent = fs.readFileSync(`doc/adr/${filename}`, "utf8");
@@ -69,9 +69,12 @@ function generateContentsPage(markdownFiles) {
     const tags = metadata.tags
       ? metadata.tags.split(",").map((tag) => tag.trim())
       : [];
+    const authors = metadata.authors
+      ? metadata.authors.split(",").map((author) => author.trim())
+      : [];
     contents += `| ${date} | [${title}](doc/adr/${filename}) | ${displayTags(
       tags
-    )} |\n`;
+    )} | ${authors.join(", ")}\n`;
   });
 
   return contents;

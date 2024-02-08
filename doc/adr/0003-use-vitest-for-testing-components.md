@@ -1,5 +1,6 @@
 ---
 tags: frontend,testing
+authors: Jonathan, Matej
 ---
 
 # 3. Use Vitest for testing components
