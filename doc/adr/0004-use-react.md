@@ -1,5 +1,5 @@
 ---
-tags: frontend, react
+tags: frontend
 authors: Jon Catchpowle, Matej Vobornik
 ---
 
