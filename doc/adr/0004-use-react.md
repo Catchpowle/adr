@@ -1,5 +1,5 @@
 ---
-tags: frontend,framework
+tags: frontend
 authors: Jon Catchpowle, Matej Vobornik
 ---
 
