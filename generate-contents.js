@@ -36,6 +36,17 @@ function extractTitle(markdownContent) {
   return null;
 }
 
+function extractDate(markdownContent) {
+  const lines = markdownContent.split("\n");
+  for (let line of lines) {
+    if (line.trim().startsWith("date:")) {
+      const date = line.trim().substring(5).trim();
+      return date;
+    }
+  }
+  return "N/A";
+}
+
 function readMarkdownFiles(directory) {
   const files = fs.readdirSync(directory);
   return files.filter((file) => file.endsWith(".md"));
@@ -47,17 +58,20 @@ function displayTags(tags) {
 
 function generateContentsPage(markdownFiles) {
   let contents = "# Contents\n\n";
-  contents += "| Title | Tags |\n";
-  contents += "|-------|------|\n";
+  contents += "| Date | Title | Tags |\n";
+  contents += "|-------|------|------|\n";
 
   markdownFiles.reverse().forEach((filename) => {
     const markdownContent = fs.readFileSync(`doc/adr/${filename}`, "utf8");
     const metadata = extractMetadata(markdownContent);
+    const date = extractDate(markdownContent);
     const title = extractTitle(markdownContent);
     const tags = metadata.tags
       ? metadata.tags.split(",").map((tag) => tag.trim())
       : [];
-    contents += `| [${title}](doc/adr/${filename}) | ${displayTags(tags)} |\n`;
+    contents += `| ${date} | [${title}](doc/adr/${filename}) | ${displayTags(
+      tags
+    )} |\n`;
   });
 
   return contents;
