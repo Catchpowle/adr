@@ -41,6 +41,10 @@ function readMarkdownFiles(directory) {
   return files.filter((file) => file.endsWith(".md"));
 }
 
+function displayTags(tags) {
+  return tags.map((tag) => `\`${tag}\``).join(", ");
+}
+
 function generateContentsPage(markdownFiles) {
   let contents = "# Contents\n\n";
   contents += "| Title | Tags |\n";
@@ -53,7 +57,7 @@ function generateContentsPage(markdownFiles) {
     const tags = metadata.tags
       ? metadata.tags.split(",").map((tag) => tag.trim())
       : [];
-    contents += `| [${title}](doc/adr/${filename}) | ${tags.join(", ")} |\n`;
+    contents += `| [${title}](doc/adr/${filename}) | ${displayTags(tags)} |\n`;
   });
 
   return contents;
