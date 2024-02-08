@@ -1,3 +1,8 @@
+---
+tags:
+authors:
+---
+
 # NUMBER. TITLE
 
 Date: DATE

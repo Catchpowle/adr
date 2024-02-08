@@ -1,6 +1,6 @@
 ---
 tags: frontend
-authors: Jonathan
+authors: Jonathan Catchpowle, Matej Vobornik
 ---
 
 # 4. Use React
