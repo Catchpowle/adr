@@ -57,7 +57,7 @@ function displayTags(tags) {
   return tags
     .map(
       (tag) =>
-        `[\`${tag}\`](https://github.com/Catchpowle/adr/tree/main/tags/${tag})`
+        `[\`${tag}\`](https://github.com/Catchpowle/adr/tree/main/tags/${tag}.md)`
     )
     .join(" ");
 }
@@ -104,12 +104,12 @@ function generateTagFolders(markdownFiles) {
   });
 
   tagFolders.forEach((tag) => {
-    const folderPath = path.join(".", "tags", tag);
+    const folderPath = path.join(".", "tags");
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath, { recursive: true });
     }
     const contentsPage = generateContentsPage(markdownFiles, tag);
-    fs.writeFileSync(path.join(folderPath, "README.md"), contentsPage);
+    fs.writeFileSync(path.join(folderPath, `${tag}.md`), contentsPage);
     console.log(`Contents page generated for tag "${tag}"`);
   });
 }
