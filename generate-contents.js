@@ -46,7 +46,7 @@ function generateContentsPage(markdownFiles) {
   contents += "| Title | Tags |\n";
   contents += "|-------|------|\n";
 
-  markdownFiles.forEach((filename) => {
+  markdownFiles.reverse().forEach((filename) => {
     const markdownContent = fs.readFileSync(`doc/adr/${filename}`, "utf8");
     const metadata = extractMetadata(markdownContent);
     const title = extractTitle(markdownContent);
