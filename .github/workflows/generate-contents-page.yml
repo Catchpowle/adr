@@ -1,0 +1,33 @@
+name: Generate Contents Page
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate_contents:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.11.0"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate Contents Page
+        run: node generate-contents.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add contents.md
+          git commit -m "Generate contents page"
+          git push
