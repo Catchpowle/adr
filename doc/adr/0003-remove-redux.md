@@ -1,6 +1,6 @@
 ---
-tags:
-authors:
+tags: frontend
+authors: Jon Catchpowle
 ---
 
 # 3. Remove Redux
