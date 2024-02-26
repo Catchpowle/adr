@@ -21,7 +21,7 @@ jobs:
           node-version: "20.11.0"
 
       - name: Generate Contents Page
-        run: node generate-contents.js
+        run: node ./scripts/generate-contents.js
 
       - name: Commit and push changes
         run: |
